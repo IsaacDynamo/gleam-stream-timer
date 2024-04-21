@@ -1,0 +1,46 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: "26.0.2"
+          gleam-version: "1.1.0"
+          rebar3-version: "3"
+          # elixir-version: "1.15.4"
+      - run: gleam build
+      - run: mkdir -p ./public/build/dev
+      - run: mkdir -p ./public/src
+      - run: cp ./src/index.html ./public
+      - run: cp ./src/style.css ./public
+      - run: cp ./src/ffi.mjs ./public/src
+      - run: cp -r ./build/dev/javascript ./public/build/dev
+      - run: chmod -R 755 ./public
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  # Deployment job
+  deploy:
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
