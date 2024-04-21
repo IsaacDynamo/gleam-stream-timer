@@ -1,0 +1,6 @@
+name = "gleam_stream_timer"
+version = "1.0.0"
+target = "javascript"
+
+[dependencies]
+gleam_stdlib = ">= 0.34.0 and < 2.0.0"

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="https://gleam.run/images/lucy/lucy.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend">
+    <link rel="preload" href="https://gleam.run/images/lucy/lucyhappy.svg" as="image">
+    <title>Timer</title>
+  </head>
+  <body>
+    <script type="module">
+        import { main } from '/build/dev/javascript/stream_timer/main.mjs';
+        main();
+    </script>
+    <div id="lucy">
+    <img src="https://gleam.run/images/lucy/lucy.svg">
+    </div>
+    <div id="info">
+      <span id=timer>00:00:00</span>
+      <textarea rows="3">Back soon <3&#10;(having a 2min break)</textarea>
+    </div>
+  </body>
+</html>

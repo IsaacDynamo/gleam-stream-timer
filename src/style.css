@@ -1,0 +1,71 @@
+body {
+    background-color: #ffaff3;
+    color: #151515;
+    margin: 0;
+}
+
+body, textarea {
+    font-size: 80px;
+    font-family: 'Lexend', 'Outfit', 'sans-serif';
+}
+
+textarea {
+    border: none;
+    background: transparent;
+    resize: none;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-bottom: 15%;
+    width: 95%;
+    padding: 0;
+
+    font-size: 4vi;
+}
+
+textarea:focus {
+    outline-color: #a6f0fc;
+    outline-width: 0.4vi;
+    outline-style: solid;
+    background-color: #fefefc;;
+}
+
+span {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-bottom: 50%;
+    margin-left: 0%;
+
+    font-size: 6vi;
+}
+
+#info {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+}
+
+#lucy {
+    width: 30%;
+    margin-left: 7%;
+    margin-bottom: 7%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+#lucy img {
+    transform: rotate(-10deg);
+    transition: transform 0.8s ease;
+}
+
+#lucy img.move {
+    transform: rotate(10deg);
+}
+
+#lucy img.happy {
+    content: url("https://gleam.run/images/lucy/lucyhappy.svg");
+}
