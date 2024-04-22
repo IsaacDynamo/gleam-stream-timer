@@ -42,26 +42,26 @@ fn tick(start, timer, lucy) {
 
 pub type Element
 
-@external(javascript, "/src/ffi.mjs", "query_selector")
+@external(javascript, "./ffi.mjs", "query_selector")
 pub fn query_selector(selectors: String) -> Element
 
-@external(javascript, "/src/ffi.mjs", "get")
+@external(javascript, "./ffi.mjs", "get")
 pub fn get(from from: Element, property property: String) -> String
 
-@external(javascript, "/src/ffi.mjs", "set")
+@external(javascript, "./ffi.mjs", "set")
 pub fn set(on on: Element, property property: String, to to: anything) -> Bool
 
-@external(javascript, "/src/ffi.mjs", "set_interval")
+@external(javascript, "./ffi.mjs", "set_interval")
 pub fn set_interval(function: anything, milliseconds: Int) -> Nil
 
-@external(javascript, "/src/ffi.mjs", "set_timeout")
+@external(javascript, "./ffi.mjs", "set_timeout")
 pub fn set_timeout(function: anything, milliseconds: Int) -> Nil
 
-@external(javascript, "/src/ffi.mjs", "date_now")
+@external(javascript, "./ffi.mjs", "date_now")
 pub fn date_now() -> Int
 
-@external(javascript, "/src/ffi.mjs", "class_list_add")
+@external(javascript, "./ffi.mjs", "class_list_add")
 pub fn class_list_add(on: Element, c: String) -> Nil
 
-@external(javascript, "/src/ffi.mjs", "class_list_remove")
+@external(javascript, "./ffi.mjs", "class_list_remove")
 pub fn class_list_remove(on: Element, c: String) -> Nil

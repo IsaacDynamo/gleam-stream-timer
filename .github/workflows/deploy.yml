@@ -18,10 +18,8 @@ jobs:
           # elixir-version: "1.15.4"
       - run: gleam build
       - run: mkdir -p ./public/build/dev
-      - run: mkdir -p ./public/src
-      - run: cp ./src/index.html ./public
-      - run: cp ./src/style.css ./public
-      - run: cp ./src/ffi.mjs ./public/src
+      - run: cp ./index.html ./public
+      - run: cp ./style.css ./public
       - run: cp -r ./build/dev/javascript ./public/build/dev
       - run: chmod -R 755 ./public
       - name: Upload artifact
