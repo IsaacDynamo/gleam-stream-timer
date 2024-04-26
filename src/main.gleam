@@ -1,20 +1,22 @@
 import gleam/int
 import gleam/string
 import gleam/result
+import gleam/javascript
 
 pub fn main() {
-  let start = date_now()
+  let start = javascript.make_reference(date_now())
   let timer = query_selector("#timer")
   let lucy = query_selector("#lucy img")
+
+  timer |> set("onclick", fn() {
+    start |> javascript.set_reference(date_now())
+    timer |> update_timer(0)
+  })
 
   tick(start, timer, lucy)
 }
 
-fn tick(start, timer, lucy) {
-  let delta = date_now() - start
-
-  set_timeout(fn() { tick(start, timer, lucy) } , 1000 - { delta  % 1000 } + 100 )
-
+fn update_timer(timer, delta) {
   let sec = delta / 1000 % 60
   let min = delta / {1000 * 60} % 60
   let hours =  delta / {1000 * 60 * 60}
@@ -26,7 +28,16 @@ fn tick(start, timer, lucy) {
 
   let format = hh <> ":" <> mm <> ":" <> ss
 
-  set("innerText", on: timer, to: format)
+  timer |> set("innerText", format)
+}
+
+
+fn tick(start, timer, lucy) {
+  let delta = date_now() - javascript.dereference(start)
+
+  set_timeout(fn() { tick(start, timer, lucy) } , 1000 - { delta  % 1000 } + 100 )
+
+  timer |> update_timer(delta)
 
   let secs = delta / 1000
   case secs % 2 {

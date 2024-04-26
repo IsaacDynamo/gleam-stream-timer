@@ -4,3 +4,4 @@ target = "javascript"
 
 [dependencies]
 gleam_stdlib = ">= 0.34.0 and < 2.0.0"
+gleam_javascript = ">= 0.8.0 and < 1.0.0"
