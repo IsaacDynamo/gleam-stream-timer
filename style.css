@@ -58,12 +58,12 @@ span {
 }
 
 #lucy img {
-    transform: rotate(-10deg);
+    width: 100%;
     transition: transform 0.8s ease;
 }
 
 #lucy img.move {
-    transform: rotate(10deg);
+    transform: rotate(20deg);
 }
 
 #lucy img.happy {
