@@ -31,6 +31,10 @@ textarea:focus {
     background-color: #fefefc;;
 }
 
+textarea::selection {
+    background-color: #ffaff3;
+}
+
 span {
     position: absolute;
     left: 0;
