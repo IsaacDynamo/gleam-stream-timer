@@ -1,8 +1,10 @@
 # Gleam Stream Timer
 Wait with Lucy until Gleam stream continues.
 
+https://isaacdynamo.github.io/gleam-stream-timer/
+
 ## Development
-Not sure how to create a deployable artifact, used Pythons `http.server` to serve the source and generated files.
+During development Pythons `http.server` can be used to serve the page.
 
 ```sh
 # Build
